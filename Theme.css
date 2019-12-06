@@ -1,3 +1,35 @@
+
+:root {
+    --primary-1: white !important;
+    --primary-2: #25272a !important;
+    --primary-3: #333 !important;
+
+    --action-1: linear-gradient(#407045, #305530) !important;
+
+    --main-font-color: white !important;
+    --secondary-font-color: #bbb !important;
+    --link-font-color: white !important;
+    --link-font-color-hover: rgb(119, 205, 255) !important;
+    --nav-font-color-active: white !important;
+    --nav-font-color-hover: white !important;
+    --nav-font-color: #BBB !important;
+
+    --dropdown-background: var(--primary-2);
+
+    --repo-head-background: #333 !important;
+    --repo-background: #222 !important;
+    --repo-container-notch-background: var(--primary-3);
+    
+    
+    --dashboard-background: #25272a !important;
+
+    --top-nav-background: #24292e !important;
+    --card-background: #25272a !important;
+    --input-border-color: #343434 !important;
+    --input-border-color-active: #2188ff  !important;
+    --user-title-color: white !important;
+}
+
 body {
     background-color: #222 !important;
     background-clip: border-box !important;
@@ -33,7 +65,7 @@ body {
     visibility: hidden !important;
 }
 .UnderlineNav-item {
-    color: #BBB !important
+    color: var(--nav-font-color);
 }
 
 .UnderlineNav-item:focus,
@@ -7707,14 +7739,14 @@ a.user-mention:hover,
 a.reponav-item,
 a.tabnav-extra,
 .tabnav-extra {
-    color: #BBB !important;
+    color: var(--nav-font-color);
 }
 
 .reponav-item:hover,
 a.reponav-item:hover,
 a.tabnav-extra:hover,
 .tabnav-extra:hover {
-    color: white !important;
+    color: var(--nav-font-color-hover);
 }
 
 .timeline-comment {
@@ -7726,7 +7758,7 @@ a.tabnav-extra:hover,
 }
 
 .UnderlineNav-item[role=tab][aria-selected=true] {
-    color: white !important;
+    color: var(--nav-font-color-active);
 }
 
 form[style="background: #ffeef8; border: 1px solid #ec6cb9 !important;"]{
@@ -7745,7 +7777,7 @@ form[style="background: #ffeef8; border: 1px solid #ec6cb9 !important;"]{
 .SideNav-item:hover,
 .SideNav-item:focus {
     background: #3d4348 !important;
-    color: white !important;
+    color: var(--nav-font-color-active);
 }
 .SideNav-item[aria-current=page] {
     background: #25272a !important;
