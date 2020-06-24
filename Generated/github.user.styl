@@ -1,12 +1,12 @@
 /* ==UserStyle==
-@name         GithubDarkTheme();
-@namespace    github.com/DarkThemeHub/GithubDarkTheme
+@name         GithubPronHubDark
+@namespace    github.com/Paxxs/GithubPronHubDark
 @version      1.31.0
-@description  Dark theme for github.
+@description  Pronhub Dark theme for github.
 @author       DarkThemeHub
-@homepageURL  https://github.com/DarkThemeHub/GithubDarkTheme
-@supportURL   https://github.com/DarkThemeHub/GithubDarkTheme/issues
-@updateURL    https://raw.githubusercontent.com/DarkThemeHub/GithubDarkTheme/master/Generated/github.user.styl
+@homepageURL  https://github.com/Paxxs/GithubPronHubDark
+@supportURL   https://github.com/Paxxs/GithubPronHubDark/issues
+@updateURL    https://raw.githubusercontent.com/Paxxs/GithubPronHubDark/master/Generated/github.user.styl
 ==/UserStyle== */
 
 @-moz-document regexp("^https?:\/\/(((?!desktop).*\.)?(githubusercontent|githubstatus|github)\.(?!io|myshopify|blog)).*") {
@@ -43,6 +43,9 @@ body {
 
 .graphs .selection .overlay {
   visibility: hidden !important; }
+
+.UnderlineNav {
+  box-shadow: inset 0 -1px 0 #ffa31a !important; }
 
 .UnderlineNav-item {
   color: #bbb !important; }
@@ -791,7 +794,7 @@ a.pagehead-nav-item.selected,
   border-top: 2px solid #eee !important; }
 
 .menu-item.selected:before {
-  background-color: #eee !important; }
+  background-color: #ffa31a !important; }
 
 .dropdown-arrow {
   border-top-color: #eee !important;
@@ -4052,8 +4055,13 @@ a.text-green,
 .btn-primary:not(.compare-button),
 .button.primary,
 .btn-theme-green {
-  background: linear-gradient(#407045, #305530) !important;
+  background: #ffa31a !important;
+  color: black !important;
   border-color: #083 !important; }
+  .btn-primary:not(.compare-button) .octicon,
+  .button.primary .octicon,
+  .btn-theme-green .octicon {
+    color: black !important; }
 
 .button.primary:disabled,
 .button.primary:disabled:hover,
@@ -4065,7 +4073,8 @@ a.text-green,
 .btn-primary.disabled:hover,
 .btn-theme-green:disabled,
 .btn-theme-green:disabled:hover {
-  background: linear-gradient(#203522, #152715) !important;
+  color: black !important;
+  background: #fdab30;
   border-color: #041 !important; }
 
 /* New additions */
@@ -4082,7 +4091,8 @@ a.new-repo:hover {
 .btn-primary:not(:disabled):not(.compare-button):hover,
 .button.primary:not(:disabled):hover,
 .btn-theme-green:hover {
-  background: linear-gradient(#508055, #407045) !important; }
+  color: black !important;
+  background: #fdab30 !important; }
 
 /* orange */
 #user-links .unread_count,
@@ -4561,14 +4571,13 @@ td.blob-code-deletion:not(.line-age) {
   background: #1d1d1d !important; }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(175, 175, 175, 0.5) !important; }
+  background: rgba(255, 163, 26, 0.5) !important; }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(65, 131, 196, 0.8) !important; }
+  background: rgba(184, 125, 38, 0.8) !important; }
 
 :root {
-  scrollbar-color: rgba(175, 175, 175, 0.5) #1d1d1d !important;
-  scrollbar-width: thin !important; }
+  scrollbar-color: #ffa31a #1d1d1d !important; }
 
 /* GitHub Enterprise Only
    *                                 _____..---========+*+==========---.._____
@@ -6552,7 +6561,7 @@ a.btn,
 
 .pagehead h1,
 .pagehead h1 .octicon {
-  color: white !important; }
+  color: #ff9900 !important; }
 
 .pinned-issue-item,
 .pinned-item-list-item {
@@ -7129,5 +7138,22 @@ span.Label.flex-self-center.Label--outline.border-0.ml-2.bg-gray-2 {
 .legend-item.light {
   color: #ffffff;
   opacity: 0.5; }
+
+.user-card {
+  background: #1b1b1b !important;
+  border-bottom: 1px solid #070707 !important; }
+
+h1, h2, h3, h4 {
+  color: #ff9900 !important; }
+
+.octicon-mark-github {
+  background-image: url(https://di.phncdn.com/www-static/images/pornhub_logo_gay.png?cache=2020062302) !important;
+  width: 150px !important;
+  height: 40px !important; }
+  .octicon-mark-github > path {
+    display: none; }
+
+.Header {
+  background-color: #000 !important; }
 
 }
