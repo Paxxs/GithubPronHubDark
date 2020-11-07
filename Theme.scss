@@ -1,19 +1,29 @@
 $BackgroundColor-1: #222;
 $BackgroundColor-2: #1d1d1d;
 $BackgroundColor-3: #25272a;
+$BackgroundColor-4: #39424a;
 $Blue-1: #4299fc;
-$MainContentBackgroundColor: $BackgroundColor-3;
+$Grey-1: #bbb;
+$Grey-2: #b5b5b5;
 
 $IconHoverColor: white;
 $NormalTextColor-1: white;
 $NavTextHoverColor-1: white;
-$NavTextColor: #bbb;
-$DescriptionTextColor-1: #bbb;
+$NavTextColor: $Grey-1;
+$DescriptionTextColor-1: $Grey-1;
 $LinkColor: $Blue-1;
 $BorderColor-1: $Blue-1;
-$UserNameColor: white;
+$SeparationBorderColor-1: #343434;
 
-$InputBackgroundColor: #25272a;
+$DropDownBackgroundColor: $BackgroundColor-3;
+$DropDownItemHoverBackgroundColor: $BackgroundColor-4;
+
+$MainContentBackgroundColor: $BackgroundColor-3;
+
+$UserNameColor: white;
+$ReviewCommentLabelColor: $Grey-1;
+$ReviewCommentLabelBorder: 1px solid $ReviewCommentLabelColor;
+$InputBackgroundColor: $BackgroundColor-3;
 
 $PronhubPrimaryColor: rgb(255, 163, 26);
 $PronhubHoverColor: rgb(253, 171, 48);
@@ -59,9 +69,11 @@ body {
 .graphs .selection .overlay {
     visibility: hidden !important;
 }
+
 .UnderlineNav {
-    box-shadow: inset 0 -1px 0 $PronhubPrimaryColor !important;
+    box-shadow: none !important;
 }
+
 .UnderlineNav-item {
     color: $NavTextColor !important;
 }
@@ -94,10 +106,13 @@ table.files td.icon,
 table.files tr.navigation-focus td table.files td.icon .octicon-file-directory,
 .commit-link,
 .js-add-project-description,
-.link-gray:hover,
-.link-gray-dark:hover,
 .link-hover-blue:hover {
     color: $LinkColor !important;
+}
+
+.link-gray:hover,
+.link-gray-dark:hover {
+    color: inherit !important;
 }
 
 .commit-link:hover,
@@ -438,14 +453,8 @@ div[id^="contribution-joined-github"] img {
 
 /* PR toolbar tweaks */
 
-.diffbar {
-    padding-top: 10px !important;
-    padding-bottom: 40px !important;
-}
-
 .is-stuck .diffbar {
     background: $MainContentBackgroundColor !important;
-    height: 2.5em;
     pointer-events: all !important;
 }
 
@@ -822,6 +831,11 @@ a.feed-icon,
     background-color: unset !important;
 }
 
+.review-comment-contents .timeline-comment-label {
+    border: $ReviewCommentLabelBorder !important;
+    color: $ReviewCommentLabelColor;
+}
+
 .markdown-body table th {
     background: #25272a !important;
     color: unset !important;
@@ -849,6 +863,12 @@ a.feed-icon,
 #notebook .output_png img {
     background-color: transparent !important;
     background-image: none !important;
+}
+
+/* remove avatar background */
+
+.AvatarStack-body {
+    background: transparent !important;
 }
 
 /* border-radius */
@@ -978,16 +998,6 @@ details summary {
     top: -1px;
 }
 
-/* GitHub Bug: Center counters vertically on the line */
-
-.boxed-group .counter,
-.reponav-item .counter,
-.boxed-group .Counter,
-.reponav-item .Counter {
-    position: relative !important;
-    top: -1px !important;
-}
-
 /* GitHub Bug: Fix image swipe handle misalignment */
 
 .swipe .swipe-frame .swipe-bar .top-handle,
@@ -995,56 +1005,10 @@ details summary {
     left: -6px !important;
 }
 
-/* GitHub Bug: Fix text selection not working on inline <code> bug in Firefox */
-
-.markdown-body code,
-.markdown-body tt {
-    padding: 0 0.3em !important;
-    display: inline-block !important;
-    max-width: 100% !important;
-}
-
 /* GitHub Bug: Stop commit message field from resizing horizontally */
 
 #commit-description-textarea {
     resize: vertical !important;
-}
-
-/* GitHub Bug: Fix broken position:sticky emulation in Firefox */
-
-@supports (position: sticky) {
-    .discussion-sidebar {
-        position: sticky !important;
-        top: 0 !important;
-    }
-
-    .discussion-sidebar-sticky {
-        position: static !important;
-        width: auto !important;
-    }
-
-    .discussion-sidebar .is-placeholder {
-        display: none !important;
-    }
-}
-
-/* GitHub Bug: Fix org layout issue */
-
-/* https://github.com/isaacs/github/issues/934 */
-
-.user-profile-repo-filter {
-    width: 100% !important;
-}
-
-/* Tweak: Square counters, add 1px padding on bottom to counter uneven font size */
-
-#conversation_tab_counter,
-#commits_tab_counter,
-#files_tab_counter,
-.reponav-item .counter,
-.reponav-item .Counter {
-    border-radius: 2px !important;
-    padding: 2px 5px 3px !important;
 }
 
 /* invisible border */
@@ -1386,7 +1350,6 @@ input.subnav-search-input,
 .build-status-item,
 .pagehead-tabs-item.selected,
 .org-header,
-.pagehead,
 .branch-action-item + .mergeability-details,
 .migration-section,
 .migrate-org-roles,
@@ -1697,11 +1660,6 @@ ul.comparison-list,
 .invitation-container,
 .orgs-help-shelf,
 .orgs-help-item-octicon,
-input[type="password"],
-input[type="email"],
-input[type="number"],
-input[type="tel"],
-input[type="url"],
 textarea,
 .dropdown-menu,
 .thread-subscription-status,
@@ -1860,7 +1818,7 @@ body .bg-white,
 .protected-branch-orgs-and-repo-admins,
 .listgroup-overflow,
 .org-sso-panel {
-    background: #25272a !important;
+    background: $BackgroundColor-3 !important;
 }
 
 .sidebar-module,
@@ -1869,6 +1827,7 @@ body .bg-white,
     border: 1px solid #343434 !important;
 }
 
+.color-primary,
 .js-site-search-field:focus,
 .jump-to-dropdown-visible:focus {
     color: white !important;
@@ -1896,6 +1855,8 @@ body .bg-white,
 .pagination a,
 .blob-num[colspan],
 .build-status-item,
+.js-upload-markdown-image.is-default,
+.write-content.js-reaction-suggestion,
 .more-branches,
 .plan-choice.open,
 .uploaded-files > li.delete,
@@ -1909,6 +1870,7 @@ body .bg-white,
 
 .table-list-header,
 .timeline-comment-header,
+.timeline-comment .color-bg-canvas,
 .boxed-group > h3,
 .boxed-group .heading,
 .file-header,
@@ -1961,9 +1923,11 @@ a.card.bg-gray-light:hover,
     .reponav-wrapper {
         background: #333 !important;
     }
+
     .border-md-top {
         border-top: none !important;
     }
+
     .tabnav--responsive .tabnav-tab {
         background-color: $MainContentBackgroundColor !important;
     }
@@ -1974,7 +1938,7 @@ a.card.bg-gray-light:hover,
 }
 
 .discussion-timeline-actions [type="submit"] {
-    margin: 0px 8px 0px 0px !important;
+    margin: -5px 8px 0px 0px !important;
 }
 
 .timeline-new-comment .form-actions div {
@@ -2090,7 +2054,6 @@ ul.feature-tabs li.highlight,
 .commit_oneline,
 .filterbox,
 .conversation-list-heading .inner,
-.autocomplete-results,
 .new-comments .body,
 .display tr,
 .render-container,
@@ -2395,91 +2358,12 @@ ul.fieldpills li,
 
 /* contribution calendar and blame heats */
 
-.calendar-graph rect[fill="#c6e48b"],
-.calendar-graph rect[fill="#7bc96f"],
-.calendar-graph rect[fill="#239a3b"],
-.calendar-graph rect[fill="#196127"],
-.heat,
-.contrib-legend li {
-    background-color: #4183c4 !important;
-    fill: #4183c4 !important;
-}
-
 .calendar-graph .days-selected rect.day.active {
     stroke: #ddd !important;
 }
 
 .calendar-graph rect.day:hover {
     stroke: #fff !important;
-}
-
-/* contribution calendar - regular colors */
-
-.calendar-graph rect[fill="#ebedf0"],
-.contrib-legend li[style*="#ebedf0"] {
-    background-color: $BackgroundColor-1 !important;
-    fill: $BackgroundColor-1 !important;
-}
-
-.heat[data-heat="1"],
-.heat[data-heat="2"],
-.calendar-graph rect[fill="#c6e48b"],
-.contrib-legend li[style*="#c6e48b"] {
-    opacity: 0.25 !important;
-}
-
-.heat[data-heat="3"],
-.heat[data-heat="4"],
-.calendar-graph rect[fill="#7bc96f"],
-.contrib-legend li[style*="#7bc96f"] {
-    opacity: 0.5 !important;
-}
-
-.heat[data-heat="5"],
-.heat[data-heat="6"],
-.calendar-graph rect[fill="#239a3b"],
-.contrib-legend li[style*="#239a3b"] {
-    opacity: 0.75 !important;
-}
-
-.heat[data-heat="7"],
-.heat[data-heat="8"],
-.calendar-graph rect[fill="#196127"],
-.contrib-legend li[style*="#196127"] {
-    opacity: 1 !important;
-}
-
-/* contribution calendar - halloween colors */
-
-.calendar-graph rect[fill="#FFEE4A"],
-.calendar-graph rect[fill="#FFC501"],
-.calendar-graph rect[fill="#FE9600"],
-.contrib-legend li[style*="#FFEE4A"],
-.contrib-legend li[style*="#FFC501"],
-.contrib-legend li[style*="#FE9600"] {
-    background-color: #fe9600 !important;
-    fill: #fe9600 !important;
-}
-
-.calendar-graph rect[fill="#FFEE4A"],
-.contrib-legend li[style*="#FFEE4A"] {
-    opacity: 0.2 !important;
-}
-
-.calendar-graph rect[fill="#FFC501"],
-.contrib-legend li[style*="#FFC501"] {
-    opacity: 0.4 !important;
-}
-
-.calendar-graph rect[fill="#FE9600"],
-.contrib-legend li[style*="#FE9600"] {
-    opacity: 0.8 !important;
-}
-
-.calendar-graph rect[fill="#03001C"],
-.contrib-legend li[style*="#03001C"] {
-    background-color: #fc3 !important;
-    fill: #fc3 !important;
 }
 
 .progress-bar.anim-grow-x,
@@ -2939,6 +2823,10 @@ article.full .alert,
     background: #273045 !important;
 }
 
+.muted-link:hover {
+    color: unset !important;
+}
+
 .bg-blue,
 .discussion-item-changes-marker.is-unread .discussion-item-icon {
     background: #4183c4 !important;
@@ -2967,7 +2855,7 @@ article.full .alert a,
 }
 
 .review-comment .pending-batched-suggestion-label {
-	background-color: #3a3301 !important;
+    background-color: #3a3301 !important;
 }
 
 .RecentBranches-item {
@@ -2976,7 +2864,7 @@ article.full .alert a,
 
 .commit-ref .user,
 .commit-ref {
-	color: $Blue-1 !important;
+    color: $Blue-1 !important;
 }
 
 .timeline-comment.current-user,
@@ -3429,7 +3317,6 @@ a.team-mention,
 .pagehead-tabs-item.selected,
 .pagehead-tabs-item:hover,
 a.pagehead-tabs-item:hover,
-.tabnav-tab.selected,
 .leaflet-control-attribution,
 .leaflet-control-attribution a,
 .integrations-breadcrumb-link,
@@ -3527,7 +3414,6 @@ a.box-action,
 .list-group-item .list-group-item-meta a,
 .list-browser-sorts .sort-type,
 .select-menu-header .select-menu-title,
-#commits_tab_counter,
 .auto-search-group .search-filter,
 .usage-bar dt,
 .github-jobs-promotion p a,
@@ -4033,6 +3919,10 @@ a.commit-id,
 .text-gray-light,
 a.text-gray-light {
     color: #7b7b7b !important;
+}
+
+.btn-link {
+    color: $LinkColor;
 }
 
 .branch-infobar .lightweight-actions > li .octicon,
@@ -5171,6 +5061,13 @@ td.selected-line.blob-code {
     scrollbar-color: $PronhubPrimaryColor #1d1d1d !important;
     // scrollbar-color: rgba(175, 175, 175, 0.5) #1d1d1d !important;
     // scrollbar-width: thin !important;
+    scrollbar-width: thin !important;
+    --color-bg-canvas-inset: #25272a;
+    --color-calendar-graph-day-bg: #222;
+    --color-calendar-graph-day-L1-bg: rgba(67, 130, 195, 0.25);
+    --color-calendar-graph-day-L2-bg: rgba(67, 130, 195, 0.5);
+    --color-calendar-graph-day-L3-bg: rgba(67, 130, 195, 0.75);
+    --color-calendar-graph-day-L4-bg: rgba(67, 130, 195, 1);
 }
 
 /* GitHub Enterprise Only
@@ -5206,8 +5103,16 @@ td.selected-line.blob-code {
     color: #ccc;
 }
 
-.enterprise .autocomplete-item {
-    color: #ccc;
+.autocomplete-item {
+    color: White !important;
+}
+
+.autocomplete-item:hover {
+    background-color: $DropDownItemHoverBackgroundColor !important;
+}
+
+.autocomplete-item {
+    background-color: $DropDownBackgroundColor !important;
 }
 
 .enterprise .repo-nav a:focus,
@@ -5625,7 +5530,7 @@ a.notifications-dropdown-see-all:hover {
 
 .issue-link.js-issue-link.tooltipped.tooltipped-ne,
 .issue-link.js-issue-link {
-	color: #4299fc !important;
+    color: #4299fc !important;
 }
 
 .awesome-autocomplete .tt-suggestion .octicon-star {
@@ -5758,7 +5663,7 @@ a.notifications-dropdown-see-all:hover {
 .select-menu-divider,
 .merge-status-item,
 .file-header {
-    border-bottom: 1px solid #343434 !important;
+    border-bottom: 1px solid $SeparationBorderColor-1 !important;
 }
 
 /* auto-generated rule for "border-left: 1px solid #e1e4e8" */
@@ -6052,7 +5957,6 @@ p.explain,
 .subnav-search-input,
 .text-gray,
 .link-gray,
-.muted-link,
 .lead,
 .Label--gray,
 .Label--outline,
@@ -7444,10 +7348,6 @@ header.container-xl.px-3.px-md-6.py-3.position-relative.d-flex.flex-justify-betw
     border: 1px solid !important;
 }
 
-.flex-justify-end {
-    padding-bottom: 15px;
-}
-
 .Label--gray {
     background-color: transparent !important;
     border: 1px solid #484848 !important;
@@ -7492,6 +7392,11 @@ a.btn:hover,
 .btn.btn-outline.selected {
     background: rgb(49, 51, 56) !important;
     color: white !important;
+}
+
+nav .Counter,
+nav .counter {
+    color: inherit !important;
 }
 
 table.files tr.navigation-focus td {
@@ -7558,11 +7463,15 @@ a.btn,
 }
 
 .user-status-circle-badge {
-	background-color: #353535 !important;
+    background-color: #353535 !important;
 }
 
 .user-status-header g-emoji {
-     font-size: 1.23em;
+    font-size: 1.23em;
+}
+
+.toggle-user-status-edit:hover .user-status-message-wrapper {
+    color: $LinkColor !important;
 }
 
 .commits-listing:before,
@@ -7789,6 +7698,7 @@ form[style="background: #ffeef8; border: 1px solid #ec6cb9 !important;"] {
     background: #3d4348 !important;
     color: white !important;
 }
+
 .SideNav-item[aria-current="page"] {
     background: $MainContentBackgroundColor !important;
 }
@@ -7809,6 +7719,7 @@ code[class="hljs language-shell"] {
 .lia-content .lia-component-quilt-header {
     background: unset !important;
 }
+
 .lia-panel .lia-panel-content,
 .MessageList > .t-data-grid {
     background: #1d1d1d !important;
@@ -8046,6 +7957,11 @@ h4 {
     background: none !important;
 }
 
+.SelectMenu-tabs {
+    box-shadow: inset 0 -1px 0 $SeparationBorderColor-1 !important;
+    padding-bottom: 1px !important;
+}
+
 .select-menu-filters,
 .SelectMenu-modal,
 .select-menu-modal {
@@ -8271,4 +8187,12 @@ h1, h2, h3, h4 {
 
 .Header {
     background-color: #000 !important;
+}
+.flash span .text-mono {
+    background: $BackgroundColor-3 !important;
+}
+
+.signup-prompt-bg {
+    background-image: linear-gradient(180deg, hsla(0, 0%, 0%, 0) 50%, #25272a),
+        linear-gradient(70deg, #2f363d, 32%, #24292e);
 }

@@ -7,7 +7,7 @@ Support us by hitting that Star and showing your friends :P
 
 [How to Contribute](https://github.com/DarkThemeHub/GithubDarkTheme/blob/master/CONTRIBUTING.md)
 
-[Regex Test](https://regex101.com/r/sEZPE5/8)
+[Regex Test](https://regex101.com/r/sEZPE5/9)
 <hr>
 
 ## Install the theme
@@ -24,4 +24,4 @@ Support us by hitting that Star and showing your friends :P
 
 ![image](https://s1.ax1x.com/2020/06/24/NdhKr8.png)
 
-![image](https://i.gyazo.com/21ad1e0850b0259867cc1803a5b68bdc.png)
+![image](https://i.gyazo.com/2cff7e938ee0461570085fab6b20ac7a.png)
